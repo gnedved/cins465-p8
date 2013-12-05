@@ -1,0 +1,36 @@
+<h1>Listing wish_lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Privacy</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @my_lists.each do |wish_list| %>
+      <tr>
+        <td><%= wish_list.name %></td>
+        <td><%= wish_list.privacy %></td>
+        <td><%= wish_list.user_id %></td>
+        <td><%= link_to 'Add Item', new_wish_list_item_path(:wish_list_id => wish_list.id) %></td>
+        <td><%= link_to 'View List', wish_list %></td>
+        <td><%= link_to 'Edit List', edit_wish_list_path(wish_list) %></td>
+        <td><%= link_to 'Destroy List', wish_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'New Wish list', new_wish_list_path %>
+<%= link_to 'Send Request', new_request_path %>
+
+

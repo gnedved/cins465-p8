@@ -1,0 +1,52 @@
+
+
+<h1>Social Wishing</h1>
+<br>
+
+<%= button_to 'New Wish list', new_wish_list_path, :method => "get" %>
+<%= button_to 'Send Request', new_request_path, :method => "get" %>
+<%= button_to 'My Wish Lists', mylists_wish_lists_path, :method => "get" %>
+
+
+<% if @wish_lists == NIL %>
+  <div><h3>No Lists Available</h3></div>
+<% else %>
+<div id="wishlists">
+  <% for list in @wish_lists.each %>
+    <% if current_user %>
+      <% valid_user = ValidAccess.where("wish_list_id = ? AND user_id = ?", list.id, current_user.id) %>
+    <% else %>
+      <% valid_user = NIL %>
+    <% end %>
+    <% if list.privacy == false || (list.privacy == true && valid_user.to_a.empty? != true) %> 
+    <div class="wishlist">
+      <div class="title"><%= list.name %></div>
+      <div id="items">
+        <% for item in @items.each %>
+          <% if item.wish_list_id == list.id %>
+          <div class="item">
+            <div class="title"><%= item.name %></div>
+            <% if item.image == NIL %>
+              <div><p>No Image Available</p></div>
+            <% else %>
+            <div class="image"><%= image_tag item.image_url(:thumb).to_s %></div>
+            <% end %>
+            <% if item.url == NIL %>
+              <div><p>No URL Available</p></div>
+            <% else %>
+              <div><%= item.url %></div>
+            <% end %>
+            <div class="actions">
+              <% if current_user %>
+                <%= link_to 'View', item %>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+    </div>
+  <% end %>
+</div>
+<% end %>

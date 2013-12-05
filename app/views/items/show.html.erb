@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @item.image %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @item.url %>
+</p>
+
+<p>
+  <strong>Wish list:</strong>
+  <%= @item.wish_list_id %>
+</p>
+
+<% if current_user && current_user.id == @item.wish_list.user_id %>
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<% end %>
+<%= link_to 'Back', mylists_wish_lists_path %>

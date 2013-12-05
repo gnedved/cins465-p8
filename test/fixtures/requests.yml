@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  wish_list_id: 1
+  user_id: 1
+  user_from_id: 1
+  status: MyString
+
+two:
+  wish_list_id: 1
+  user_id: 1
+  user_from_id: 1
+  status: MyString

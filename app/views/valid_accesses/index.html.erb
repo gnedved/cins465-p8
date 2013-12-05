@@ -1,0 +1,31 @@
+<h1>Listing valid_accesses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Wish list</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @valid_accesses.each do |valid_access| %>
+      <% if current_user && (current_user.id == valid_access.user_id || valid_acess.wish_list.user_id == current_user.id) %>
+      <tr>
+        <td><%= valid_access.wish_list_id %></td>
+        <td><%= valid_access.user_id %></td>
+        <td><%= link_to 'Show', valid_access %></td>
+        <td><%= link_to 'Edit', edit_valid_access_path(valid_access) %></td>
+        <td><%= link_to 'Destroy', valid_access, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Valid access', new_valid_access_path %>

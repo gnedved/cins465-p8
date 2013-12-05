@@ -1,0 +1,31 @@
+@import "bootstrap";
+
+html {
+  overflow-y: scroll;
+  background-color: #544227;
+}
+
+section {
+  overflow: auto;
+}
+
+body {
+  margin: 10px;
+}
+
+a:visited {
+  color: #C423DF;
+}
+
+a:hover, a:focus, a:active {
+  text-decoration: underline;
+  color: #9672AB;
+}
+
+.item {
+  border: solid 1px #CCC;
+  padding: 10px 10px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}

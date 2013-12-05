@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Wish list:</strong>
+  <%= @request.wish_list_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @request.user %>
+</p>
+
+<p>
+  <strong>User from:</strong>
+  <% user_from = User.where("id = ?", @request.user_from_id)
+  <%= user_from.email %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @request.status %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'My Requests', myrequests_requests_path %>
+<%= link_to 'Home', root_url %>
