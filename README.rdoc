@@ -1,11 +1,14 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository contains the code necessary to host a website created for my CINS 465 Web Programming Fundamentals class.
+Along with all the code contained in this repository, one needs a server to host the website and all the necessary downloads to
+run a rails website.
 
-Things you may want to cover:
+This project uses the following:
 
-* Ruby version
+* Ruby version 2.1.0
+
+* Rails version 4
 
 * System dependencies
 
@@ -21,8 +24,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
